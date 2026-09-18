@@ -18,8 +18,8 @@ phases:
       - echo "Running tests"
       - npm test
       - echo "Logging in to ECR"
-      - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
-      - REPOSITORY_URI=$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME
+      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 530467655702.dkr.ecr.us-east-1.amazonaws.com
+      - REPOSITORY_URI=530467655702.dkr.ecr.us-east-1.amazonaws.com/demoapplication-repo
       - IMAGE_TAG=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
 
   build:
